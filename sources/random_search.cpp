@@ -8,6 +8,7 @@ RandomSearch::RandomSearch(const double a,const double b)
     interval.first = a; interval.second = b;
 
     initialize_N();
+    std::cout<<"Зависимость N от P и q\n";
     print_V(N);
   }
 
@@ -75,6 +76,7 @@ void RandomSearch::pass()
           unimodal.get_matrix()->push_back(temp_vector);
           temp_vector.clear();
       }
+    std::cout<<"Результаты поиска экстремума f(x) в зависимости от P и q\n";
     unimodal.print(false);
   }
 
@@ -110,6 +112,7 @@ void RandomSearch::pass2()
           multimodal.get_matrix()->push_back(temp_vector);
           temp_vector.clear();
       }
+    std::cout<<"Результаты поиска экстремума f(x)*sin(5x) в зависимости от P и q\n";
     multimodal.print(false);
   }
 
