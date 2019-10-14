@@ -1,3 +1,7 @@
+![status bar](https://travis-ci.org/DarthBarada/TSIS-LAB02.svg?branch=master)
+![Code size](https://img.shields.io/github/languages/code-size/DarthBarada/TSIS-LAB02.svg)
+![GitHub Repo size](https://img.shields.io/github/repo-size/DarthBarada/TSIS-LAB02.svg)
+![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)
 ### Лабораторная работа № 2
 
 ### Исследование метода случайного поиска экстремума функции одного переменного
