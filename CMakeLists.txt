@@ -9,8 +9,9 @@ add_library(
   ${PROJECT_NAME}
   STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/random_search.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/Addon.cpp
 )
-#  ${CMAKE_CURRENT_SOURCE_DIR}/sources/Addon.cpp
+
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC

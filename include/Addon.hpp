@@ -17,11 +17,8 @@ class Addon         // Класс для результата
     public:
       virtual ~Addon() = default;
 
-      std::vector <std::vector<std::pair<double,double>>>* get_matrix()
-        {
-          return &matrix;
-        }
+      std::vector <std::vector<std::pair<double,double>>>* get_matrix();
 
-      void print();
+      void print(bool);
       const size_t size();
   };

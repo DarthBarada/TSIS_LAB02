@@ -3,22 +3,7 @@
 
 #include "Addon.hpp"
 
-/*Addon::Addon()  {
-    std::vector<double>temp_vec;
-
-    for(size_t index = 0;index<P.size();index++)
-      {
-        for(size_t temp = 0;temp<q.size();temp++)
-          {
-            temp_vec.push_back(0.0);
-          }
-          matrix.push_back(temp_vec);
-
-          temp_vec.clear();
-      }
-  }*/
-
-void Addon::print()
+void Addon::print(bool booltemp)
   {
     ///---------------------------
     std::cout<<std::endl
@@ -31,25 +16,40 @@ void Addon::print()
     std::cout<<std::endl
     <<"+-------+"<<"+--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+\n";
     ///-------------------------
-
-    for (size_t index = 0;index < q.size();index++)
+    if (booltemp)
       {
-        std::cout<<std::left<<std::setprecision(4)<<"|"<<std::setw(7)<<q.at(index)<<"||";
-        for (size_t joy = 0;joy<P.size();joy++)
-          {
-            std::cout<<std::left<<std::setprecision(6)<<" "<<std::setw(7)<<matrix.at(joy).at(index).second<<"|";
-          }
-          std::cout<<std::endl;
+          for (size_t index = 0;index < q.size();index++)
+            {
+              std::cout<<std::left<<std::setprecision(4)<<"|"<<std::setw(7)<<q.at(index)<<"||";
+              for (size_t joy = 0;joy<P.size();joy++)
+                {
+                  std::cout<<std::left<<std::setprecision(6)<<std::setw(8)<<matrix.at(joy).at(index).first<<"|";
+                }
+                std::cout<<std::endl;
+            }
       }
-    std::cout<<"+-------+"<<"+--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+\n";
+    else
+      {
+        for (size_t index = 0;index < q.size();index++)
+          {
+            std::cout<<std::left<<std::setprecision(4)<<"|"<<std::setw(7)<<q.at(index)<<"||";
+            for (size_t joy = 0;joy<P.size();joy++)
+              {
+                std::cout<<std::left<<std::setprecision(6)<<std::setw(8)<<matrix.at(joy).at(index).second<<"|";
+              }
+              std::cout<<std::endl;
+          }
+      }
+  std::cout<<"+-------+"<<"+--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+\n";
+
   }
 
-std::vector <std::vector<double>>* Addon::get_matrix()
-  {
-    return &matrix;
-  }
+std::vector <std::vector<std::pair<double,double>>>* Addon::get_matrix()
+    {
+      return &matrix;
+    }
 
 const size_t Addon::size()
   {
-    return const(matrix.size());
+    return matrix.size();
   }
