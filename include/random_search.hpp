@@ -1,9 +1,7 @@
 #pragma once
-
-#include "MyFunction.hpp"
 #include "Addon.hpp"
 
-class RandomSearch: public MyFunction
+class RandomSearch
   {
     std::pair <double,double> interval;
 
@@ -23,6 +21,6 @@ public:
 
     void initialize_N(double,double);
 
-    void pass();
-    void pass2();
+    void test();
+    void pass(double(*)(double));
   };

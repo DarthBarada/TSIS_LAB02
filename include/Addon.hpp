@@ -19,6 +19,6 @@ class Addon         // Класс для результата
 
       std::vector <std::vector<std::pair<double,double>>>* get_matrix();
 
-      void print(bool);
+      void print();
       const size_t size();
   };
