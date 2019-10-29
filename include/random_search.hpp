@@ -1,6 +1,5 @@
 #pragma once
 #include "Addon.hpp"
-#include "MyFunction.hpp"
 
 class RandomSearch
   {

@@ -1,4 +1,5 @@
 #include "random_search.hpp"
+#include "MyFunction.hpp"
 #include <random>
 
 void print_V(std::vector <std::vector<double>> vec);
