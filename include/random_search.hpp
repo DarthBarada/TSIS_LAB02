@@ -24,5 +24,5 @@ public:
 
     void test();
 	void clear();
-    void pass(double(*)(double) = F);
+    void pass(double(*)(double));
   };
