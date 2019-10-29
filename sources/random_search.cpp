@@ -1,5 +1,4 @@
 #include "random_search.hpp"
-#include "MyFunction.hpp"
 #include <random>
 
 void print_V(std::vector <std::vector<double>> vec);
@@ -9,7 +8,7 @@ RandomSearch::RandomSearch(const double a,const double b)
     interval.first = a; interval.second = b;
 
     initialize_N();
-    std::cout<<"Зависимость N от P и q\n";
+    std::cout<<"Dependence of N on q and P\n";
     print_V(N);
   }
 
@@ -48,6 +47,7 @@ void RandomSearch::test()
   {
     pass(F);
     pass(F2);
+	clear();
   }
 
   void RandomSearch::pass(double(*Function)(double))
@@ -57,10 +57,19 @@ void RandomSearch::test()
       std::mt19937 gen(rd());
       std::uniform_real_distribution<double> dis(interval.first,interval.second);
       ///----------------------------------------------------------------------------------------------
+	  bool is_unimodal = true;
 
       std::pair <double,double> best_point{0.0,9223372036854755807.0}; // 9 223 372 036 854 755 807.0 <- максимальное значение double
       std::vector<std::pair<double,double>> temp_vector;
       std::pair <double,double> temp_point;
+
+	  Addon* type_of_foo = &unimodal;
+
+	  if (!unimodal.get_matrix()->empty()) 
+		  {
+		    is_unimodal =false;
+            type_of_foo = &multimodal;
+		  }
 
       std::cout<<"\n";
       // Мы уже высчитали N, но если говрить о полноценной программе, то там N считается во время цикла (наверное)
@@ -80,11 +89,20 @@ void RandomSearch::test()
                 temp_vector.push_back(best_point);
                 reset_pair(best_point);
             }
-            unimodal.get_matrix()->push_back(temp_vector);
+            type_of_foo->get_matrix()->push_back(temp_vector);
             temp_vector.clear();
         }
-      std::cout<<"Результаты поиска экстремума f(x) в зависимости от P и q\n";
-      unimodal.print();
+	  if (is_unimodal) 
+	    {
+		  std::cout<<"Results of searching extremum of function f(x) \n";
+        } 
+	  else 
+		  {
+			  std::cout<<"Results of searching extremum of function f(x)*sin(5x) \n";
+		  }
+
+      
+      type_of_foo->print();
     }
 
 void print_V(std::vector <std::vector<double>> vec)
@@ -112,3 +130,9 @@ void print_V(std::vector <std::vector<double>> vec)
       }
     std::cout<<"+-------+"<<"+--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+\n";
   }
+
+void RandomSearch::clear() 
+	{
+	   unimodal.get_matrix()->clear();
+	   multimodal.get_matrix()->clear();
+	}

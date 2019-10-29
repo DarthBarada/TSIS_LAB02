@@ -6,7 +6,7 @@
 void Addon::print()
   {
     ///---------------------------
-    std::cout<<std::endl
+    std::cout<<std::left<<std::showpos<<std::fixed<<std::endl
     <<"+-------+"<<"+--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+\n";
     std::cout<<std::left<<"|"<<std::setw(7)<<"  q\\P"<<"||";
     for (auto index = P.begin();index!=P.end();index++)
@@ -21,12 +21,11 @@ void Addon::print()
         std::cout<<std::left<<std::setprecision(4)<<"|"<<std::setw(7)<<q.at(index)<<"||";
         for (size_t joy = 0;joy<P.size();joy++)
           {
-            std::cout<<std::left<<std::setprecision(6)<<std::setw(8)<<matrix.at(joy).at(index).second<<"|";
+            std::cout<<std::left<<std::setprecision(4)<<std::setw(8)<<matrix.at(joy).at(index).second<<"|";
           }
           std::cout<<std::endl;
       }
   std::cout<<"+-------+"<<"+--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+"<<"--------+\n";
-
   }
 
 std::vector <std::vector<std::pair<double,double>>>* Addon::get_matrix()

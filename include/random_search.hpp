@@ -1,5 +1,6 @@
 #pragma once
 #include "Addon.hpp"
+#include "MyFunction.hpp"
 
 class RandomSearch
   {
@@ -22,5 +23,6 @@ public:
     void initialize_N(double,double);
 
     void test();
-    void pass(double(*)(double));
+	void clear();
+    void pass(double(*)(double) = F);
   };
